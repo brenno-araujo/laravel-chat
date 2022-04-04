@@ -17,8 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
+    //users
     Route::get('/users', [UserConotrller::class, 'index'])->name('users.index');
+    Route::get('users/{user}', [UserConotrller::class, 'show'])->name('users.show');
+
+    //messages
     Route::get('/messages/{user}', [MessageController::class, 'index'])->name('messages.index');
+    Route::post('/messages/store', [MessageController::class, 'store'])->name('messages.store');
 });
 
 

@@ -23,6 +23,10 @@ class UserConotrller extends Controller
                 'error' => 'Erro no chat'
             ], Response::HTTP_BAD_REQUEST);
         }
+    }
 
+    public function show(User $user)
+    {
+        return response(['user' => $user],200);
     }
 }
