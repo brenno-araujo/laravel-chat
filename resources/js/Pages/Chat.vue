@@ -7,7 +7,17 @@ export default{
     },
     data() {
         return {
-            users: []
+            users: [],
+            messages: []
+        }
+    },
+    methods: {
+        loadMessages: function(userId){
+
+            axios.get(`api/messages/${userId}`).then(response => {
+                this.messages = response.data.messages
+                console.log(response)
+            })
         }
     },
     mounted() {
@@ -36,6 +46,7 @@ export default{
                         <ul>
                             <li
                                 v-for="user in users" :key="user.id"
+                                @click="() => {loadMessages(user.id)}"
                                 class="p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200  hover:bg-opacity-50 hover:cursor-pointer">
                                 <p class="flex items-center">{{user.name}}
                                     <span class="ml-2 w-2 h-2 bg-blue-400 rounded-full"></span>
@@ -48,53 +59,14 @@ export default{
                     <div class="w-9/12 flex flex-col justify-between">
                         <!-- message -->
                         <div class="w-full p-6 flex flex-col overflow-y-scroll">
-                            <div class="w-full mb-3 text-right">
+                            <div
+                                v-for="message in messages" :key="message.id"
+                                :class="(message.from == $attrs.auth.user.id) ? 'text-right' : '' "
+                                class="w-full mb-3">
                                 <p class="inline-block p-2 rounded-md messageToMe" style="max-width: 75%;">
-                                    Olá
+                                    {{message.content}}
                                 </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:43</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
-                            </div>
-                            <div class="w-full mb-3 text-left">
-                                <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">
-                                    Oi
-                                </p>
-                                    <span class="block mt-1 text-xs text-gray-500">01/04/2022 - 16:44</span>
+                                    <span class="block mt-1 text-xs text-gray-500">{{message.created_at}}</span>
                             </div>
                             <div class="w-full mb-3 text-left">
                                 <p class="inline-block p-2 rounded-md messageFromMe" style="max-width: 75%;">

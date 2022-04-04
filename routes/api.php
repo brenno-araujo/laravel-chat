@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\UserConotrller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/users', [UserConotrller::class, 'index'])->name('users.index');
+    Route::get('/messages/{user}', [MessageController::class, 'index'])->name('messages.index');
 });
 
 
