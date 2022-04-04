@@ -1,6 +1,7 @@
 <script>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import moment from 'moment';
+import store from '../store';
 
 export default{
     components: {
@@ -13,6 +14,11 @@ export default{
             userActive: null,
             message: ''
         }
+    },
+    computed: {
+        user() {
+            return store.state.user;
+        },
     },
     methods: {
 
@@ -44,7 +50,7 @@ export default{
             }).then(response => {
 
                 this.messages.push({
-                    'from' : '2',
+                    'from' : this.user.id,
                     'to': this.userActive.id,
                     'content': this.message,
                     'created_at': new Date().toISOString(),
@@ -52,6 +58,8 @@ export default{
                 })
 
                 this.message = ''
+            }).catch(error => {
+                console.log(error)
             })
 
             this.scrollToBottom();
@@ -59,9 +67,19 @@ export default{
         }
     },
     mounted() {
+
         axios.get('api/users').then(response => {
             this.users = response.data.users
         })
+
+        Echo.private(`user.${this.user.id}`).listen('App\Events\Chat\SendMessage', async  (e) => {
+                if(this.userActive && this.userActive.id == e.message.from){
+                    this.messages.push(e.message)
+                    this.scrollToBottom();
+                }
+            })
+
+                
     }
 }
 </script>
