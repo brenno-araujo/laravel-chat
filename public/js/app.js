@@ -23547,13 +23547,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 
@@ -23567,7 +23565,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       users: [],
       messages: [],
       userActive: null,
-      message: ""
+      message: ''
     };
   },
   computed: {
@@ -23578,14 +23576,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     scrollToBottom: function scrollToBottom() {
       if (this.messages) {
-        document.querySelectorAll(".message:last-child")[0].scrollIntoView();
+        document.querySelectorAll('.message:last-child')[0].scrollIntoView();
       }
     },
     loadMessages: function () {
       var _loadMessages = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(userId) {
         var _this = this;
 
-        var user;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -23599,20 +23596,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 3:
-                user = this.users.filter(function (user) {
-                  if (user.id === userId) {
-                    return user;
-                  }
-                });
-
-                if (user) {
-                  //user.notificaion = true [Deveria ser reativo, mas não vai funcionar... então...]
-                  vue__WEBPACK_IMPORTED_MODULE_4__["default"].set(user[0], 'notification', false);
-                }
-
                 this.scrollToBottom();
 
-              case 6:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -23638,19 +23624,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.post("api/messages/store", {
-                  content: this.message,
-                  to: this.userActive.id
+                return axios.post('api/messages/store', {
+                  'content': this.message,
+                  'to': this.userActive.id
                 }).then(function (response) {
                   _this2.messages.push({
-                    from: _this2.user.id,
-                    to: _this2.userActive.id,
-                    content: _this2.message,
-                    created_at: new Date().toISOString(),
-                    updated_at: new Date().toISOString()
+                    'from': _this2.user.id,
+                    'to': _this2.userActive.id,
+                    'content': _this2.message,
+                    'created_at': new Date().toISOString(),
+                    'updated_at': new Date().toISOString()
                   });
 
-                  _this2.message = "";
+                  _this2.message = '';
                 });
 
               case 2:
@@ -23674,18 +23660,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mounted: function mounted() {
     var _this3 = this;
 
-    axios.get("api/users").then(function (response) {
+    axios.get('api/users').then(function (response) {
       _this3.users = response.data.users;
     });
-    Echo["private"]("user.".concat(this.user.id)).listen(".SendMessage", /*#__PURE__*/function () {
+    Echo["private"]("user.".concat(this.user.id)).listen('.SendMessage', /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(e) {
-        var user;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 if (!(_this3.userActive && _this3.userActive.id === e.message.from)) {
-                  _context3.next = 6;
+                  _context3.next = 4;
                   break;
                 }
 
@@ -23695,21 +23680,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 _this3.scrollToBottom();
 
-                _context3.next = 8;
-                break;
-
-              case 6:
-                user = _this3.users.filter(function (user) {
-                  if (user.id === e.message.from) {
-                    return user;
-                  }
-                });
-
-                if (user) {
-                  vue__WEBPACK_IMPORTED_MODULE_4__["default"].set(user[0], "notification", true);
-                }
-
-              case 8:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -27495,7 +27466,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "font-semibold text-xl text-gray-800 leading-tight"
-}, "Chat", -1
+}, " Chat ", -1
 /* HOISTED */
 );
 
@@ -27519,10 +27490,13 @@ var _hoisted_6 = ["onClick"];
 var _hoisted_7 = {
   "class": "flex items-center"
 };
-var _hoisted_8 = {
-  key: 0,
-  "class": "ml-2 w-2 h-2 bg-blue-500 rounded-full"
-};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "ml-2 w-2 h-2 bg-blue-400 rounded-full"
+}, null, -1
+/* HOISTED */
+);
+
 var _hoisted_9 = {
   "class": "w-9/12 flex flex-col justify-between"
 };
@@ -27549,7 +27523,7 @@ var _hoisted_14 = {
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   type: "submit",
   "class": "bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 border-none"
-}, " Enviar ", -1
+}, "Enviar", -1
 /* HOISTED */
 );
 
@@ -27572,7 +27546,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.userActive && $data.userActive.id == user.id ? 'bg-gray-200 bg-opacity-50' : '', "p-6 text-lg text-gray-600 leading-7 font-semibold border-b border-gray-200 hover:bg-gray-200 hover:bg-opacity-50 hover:cursor-pointer"])
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(user.name) + " ", 1
         /* TEXT */
-        ), user.notification ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_8)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 10
+        ), _hoisted_8])], 10
         /* CLASS, PROPS */
         , _hoisted_6);
       }), 128
