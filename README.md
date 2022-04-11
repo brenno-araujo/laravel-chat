@@ -4,41 +4,41 @@
 	✔  Laravel Chat 🚀  ✔
 </h4>
 
-## 🗺 Sobre o projeto
+## 🗺 About the project
 
-Projeto criado utilizando Laravel, Vue js e Websockets como principais tecnologias para criação de chat com níveis de usuários em comum.
+Project created using Laravel, Vue js and Websockets as main technologies for creating chat with user levels in common.
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies used
 
 - [Laravel 8](https://laravel.com/)
 - [Vue Js 3](https://vuejs.org/)
 - [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) 
 
-## :memo: Licenças
+## :memo: Licenses
 
-Este projeto está sob a MIT license. Veja a [LICENÇA](https://github.com/brenno-git/laravel-chat/blob/main/LICENSE) para mais detalhes.
+This project is under the MIT license. See [LICENSE](https://github.com/brenno-git/laravel-chat/blob/main/LICENSE) for details.
 
-Feito por Brenno Araújo - [Linkedin](https://www.linkedin.com/in/brennoaraujo/)
+Made by Brenno Araújo - [Linkedin](https://www.linkedin.com/in/brennoaraujo/)
 
-## Disponíveis Scripts
+## Available scripts
 
-No direitorio raiz do clone do seu projeto você pode rodar:
+In the clone root directory of your project you can run:
 
 ### ` npm i && composer install`
 
-Basta digitar os comandos para baixar os pacotes necessários.
+Just type the commands to download the necessary packages.
 
 ### `npm run watch`
 
-Esse comando combina todos os seus componentes Vue e outros arquivos JavaScript em um arquivo combinado amigável ao navegador e permanece ativo e atento a novas alterações.
+This command combines all your Vue components and other JavaScript files into a browser-friendly combined file and remains active and attentive to new changes.
 
 ### `php artisan serve`
 
-Inicia o servidor Laravel
+Start Laravel server
 
 ### `php artisan serve`
 
-Inicia o servidor Websockts
+Start the Websockts server
 
 ### `php artisan websockets:serve`
 
