@@ -24,19 +24,19 @@ Made by Brenno Araújo - [Linkedin](https://www.linkedin.com/in/brennoaraujo/)
 
 In the clone root directory of your project you can run:
 
-### ` npm i && composer install`
+##### ` npm i && composer install`
 
 Just type the commands to download the necessary packages.
 
-### `npm run watch`
+##### `npm run watch`
 
 This command combines all your Vue components and other JavaScript files into a browser-friendly combined file and remains active and attentive to new changes.
 
-### `php artisan serve`
+##### `php artisan serve`
 
 Start Laravel server
 
-### `php artisan websockets:serve`
+##### `php artisan websockets:serve`
 
 Start the Websockts server
 
