@@ -1,7 +1,7 @@
 # Laravel Chat
 
 <h4 align="center"> 
-	✔  Laravel Chat 🚀  ✔
+	✔  LaraChat 🚀  ✔
 </h4>
 
 ## 🗺 About the project
@@ -36,9 +36,9 @@ This command combines all your Vue components and other JavaScript files into a 
 
 Start Laravel server
 
-### `php artisan serve`
+### `php artisan websockets:serve`
 
 Start the Websockts server
 
-### `php artisan websockets:serve`
+
 
